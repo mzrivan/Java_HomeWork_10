@@ -10,7 +10,7 @@ public class RadioTest {
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/data.csv")
-    public void setCurrentStationTest(int set,int expected) {
+    public void setCurrentStationTest(int set, int expected) {
         Radio radioService = new Radio();
         // вызываем целевой метод:
         radioService.setCurrentStation(0);
@@ -28,7 +28,7 @@ public class RadioTest {
             "9,0",
             "0,1"
     })
-    public void nextStationTest(int set,int expected) {
+    public void nextStationTest(int set, int expected) {
         Radio radioService = new Radio();
         // вызываем целевой метод:
         radioService.setCurrentStation(set);
@@ -46,7 +46,7 @@ public class RadioTest {
             "0,9",
             "1,0"
     })
-    public void prevStationTest(int set,int expected) {
+    public void prevStationTest(int set, int expected) {
         Radio radioService = new Radio();
         // вызываем целевой метод:
         radioService.setCurrentStation(set);
@@ -65,7 +65,7 @@ public class RadioTest {
             "9,10",
             "10,10"
     })
-    public void increaseVolumeTest(int set,int expected) {
+    public void increaseVolumeTest(int set, int expected) {
         Radio radioService = new Radio();
         // вызываем целевой метод:
         radioService.setCurrentVolume(set);
@@ -83,7 +83,7 @@ public class RadioTest {
             "10,9",
             "9,8"
     })
-    public void decreaseVolumeTest(int set,int expected) {
+    public void decreaseVolumeTest(int set, int expected) {
         Radio radioService = new Radio();
         // вызываем целевой метод:
         radioService.setCurrentVolume(set);
