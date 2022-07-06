@@ -13,8 +13,18 @@ public class RadioTest {
     public void setCurrentStationTest(int set, int expected) {
         Radio radioService = new Radio();
         // вызываем целевой метод:
-        radioService.setCurrentStation(0);
-        //Предварительно обнуляем значение
+        radioService.setCurrentStation(set);
+        //Выставляем значение
+        int actual = radioService.getCurrentStation();
+        // производим проверку (сравниваем ожидаемый и фактический):
+        Assertions.assertEquals(actual, expected);
+    }
+
+    @ParameterizedTest
+    @CsvFileSource(files = "src/test/resources/dataWithConstructor.csv")
+    public void setCurrentStationTestWithConstructor(int set, int expected,int stations) {
+        Radio radioService = new Radio(stations);
+        // вызываем целевой метод:
         radioService.setCurrentStation(set);
         //Выставляем значение
         int actual = radioService.getCurrentStation();
@@ -62,8 +72,8 @@ public class RadioTest {
     @CsvSource({
             "0,1",
             "1,2",
-            "9,10",
-            "10,10"
+            "99,100",
+            "100,100"
     })
     public void increaseVolumeTest(int set, int expected) {
         Radio radioService = new Radio();
@@ -80,8 +90,8 @@ public class RadioTest {
     @CsvSource({
             "1,0",
             "0,0",
-            "10,9",
-            "9,8"
+            "100,99",
+            "99,98"
     })
     public void decreaseVolumeTest(int set, int expected) {
         Radio radioService = new Radio();
